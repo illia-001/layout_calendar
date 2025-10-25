@@ -1,0 +1,16 @@
+$cell-width: 100px;
+$cell-height: 100px;
+$calendar-paddings: 5px;
+$hover-color: #ffbfcb;
+$background-color: #eee;
+$cell-in-row: 7;
+$month-length: 31;
+$start-day-margin: (
+  sun 606px,
+  mon 0,
+  tue 101px,
+  wed 202px,
+  thu 303px,
+  fri 404px,
+  sat 505px
+);
