@@ -1,17 +1,18 @@
 .calendar {
   display: flex;
   flex-wrap: wrap;
-  gap: 1px;
+  gap: $gap;
   padding: $calendar-paddings;
-  padding-right: 1px;
-  max-width: calc(($cell-width * $cell-in-row) + $calendar-paddings * 2);
+  width: $width;
 
   &__day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     border: 1px solid;
-    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 30px;
-    line-height: 99px;
-    text-align: center;
 
     box-sizing: border-box;
     height: $cell-height;
@@ -24,15 +25,15 @@
       transform: translateY(-20px);
       transition-duration: 0.5s;
     }
-  }
 
-  @for $day-number from 1 through $month-length {
-    & :nth-child(#{$day-number})::before {
-      content: '#{$day-number}';
+    @for $day-number from 1 through 31 {
+      &:nth-child(#{$day-number})::before {
+        content: '#{$day-number}';
+      }
     }
   }
 
-  @for $day from 1 through 31 {
+  @for $day from 28 through 31 {
     &--month-length-#{$day} :nth-child(n + #{$day + 1}) {
       display: none;
     }
@@ -40,7 +41,7 @@
 
   @each $start-day, $margin in $start-day-margin {
     &--start-day-#{$start-day} :first-child {
-      margin-left: #{$margin};
+      margin-left: #{$margin * ($gap + $cell-width)};
     }
   }
 }
