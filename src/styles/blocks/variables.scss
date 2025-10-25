@@ -7,4 +7,4 @@ $hover-color: #ffbfcb;
 $background-color: #eee;
 $start-day-margin: (mon 0, tue 1, wed 2, thu 3, fri 4, sat 5, sun 6);
 $cell-margin: $cell-width + $gap;
-$width: calc(($cell-width * $cells-in-row) + ($cells-in-row - 1) * 1px);
+$width: calc(($cell-width * $cells-in-row) + ($cells-in-row - 1) * $gap);
